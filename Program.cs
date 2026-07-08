@@ -103,27 +103,6 @@ app.MapPost("/convert/ppt-to-pdf", (HttpRequest request) => ConvertFileAsync(req
     await Task.CompletedTask;
 }));
 
-app.MapPost("/convert/rtf-to-pdf", (HttpRequest request) => ConvertFileAsync(request, async (input, output) =>
-{
-    using (WordDocument wordDocument = new WordDocument(input, Syncfusion.DocIO.FormatType.Rtf))
-    using (DocIORenderer render = new DocIORenderer())
-    using (PdfDocument pdfDocument = render.ConvertToPDF(wordDocument))
-    {
-        pdfDocument.Save(output);
-    }
-    await Task.CompletedTask;
-}));
-
-app.MapPost("/convert/odt-to-pdf", (HttpRequest request) => ConvertFileAsync(request, async (input, output) =>
-{
-    using (WordDocument wordDocument = new WordDocument(input, Syncfusion.DocIO.FormatType.Odt))
-    using (DocIORenderer render = new DocIORenderer())
-    using (PdfDocument pdfDocument = render.ConvertToPDF(wordDocument))
-    {
-        pdfDocument.Save(output);
-    }
-    await Task.CompletedTask;
-}));
 
 // --- PYTHON POWERED ENDPOINTS ---
 
@@ -215,7 +194,6 @@ import pdf2image
 from pptx import Presentation
 from pptx.util import Inches
 import os
-
 images = pdf2image.convert_from_path('{tempInput}')
 prs = Presentation()
 for i, img in enumerate(images):
@@ -237,4 +215,5 @@ prs.save('{tempOutput}')
     finally { File.Delete(tempInput); File.Delete(tempOutput); File.Delete(scriptPath); }
 });
 
-app.Run();
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Run($"http://0.0.0.0:{port}");
