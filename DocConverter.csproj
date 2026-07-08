@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="24.*" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="24.*" />
+    <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="24.*" />
+    
+    <!-- Native dependencies for Linux/Docker to fix SkiaSharp Graphics Exception -->
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.6" />
+  </ItemGroup>
+</Project>
