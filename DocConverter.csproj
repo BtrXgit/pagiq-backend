@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="24.*" />
-    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="24.*" />
-    <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="24.*" />
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="34.*" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="34.*" />
+    <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="34.*" />
     
     <!-- Native dependencies for Linux/Docker to fix SkiaSharp Graphics Exception -->
     <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.6" />
